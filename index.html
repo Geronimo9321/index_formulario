@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos Personales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input, .form-container label {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="tel"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-container button {
+            margin: 5px 0;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .style-one {
+            background-color: lightblue;
+            color: black;
+        }
+        .high-contrast {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container" id="form-container">
+        <h2>Formulario de Datos Personales</h2>
+        <form id="personal-data-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+    
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+    
+            <label for="residencia">País de Residencia:</label>
+            <input type="text" id="residencia" name="residencia" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <button onclick="applyStyleOne()">Estilo Uno</button>
+        <button onclick="applyHighContrast()">Estilo de Alto Contraste</button>
+    </div>
+
+    <script>
+        
+        document.getElementById('personal-data-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        alert('Formulario enviado correctamente');
+        });
+
+        function applyStyleOne() {
+            document.getElementById('form-container').classList.remove('high-contrast');
+            document.getElementById('form-container').classList.add('style-one');
+        }
+
+        function applyHighContrast() {
+            document.getElementById('form-container').classList.remove('style-one');
+            document.getElementById('form-container').classList.add('high-contrast');
+        }
+    </script>
+</body>
+</html>
